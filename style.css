@@ -1,0 +1,279 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #fff5f5;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* HEADER & FOOTER */
+header, footer {
+  background: #D82F16;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+header img {
+  float: left;
+  width: 150px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin: 10px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+
+/* MAIN SECTION */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row; /* landscape layout */
+  overflow: hidden;
+}
+
+#menu-section, #order-section {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid #b71c1c;
+  padding-bottom: 0.2rem;
+}
+
+/* MENU PRODUCTS */
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 6px #ccc;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #d32f2f;
+}
+
+.product-card p.description {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-card .price {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #c62828;
+}
+
+.product-card button {
+  background: #d32f2f;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background: #b71c1c;
+}
+
+/* ORDER SECTION */
+#order-section {
+  background: white;
+  border-left: 1px solid #ddd;
+  box-shadow: -4px 0 10px #ccc;
+}
+
+.order-list {
+  margin-top: 0.5rem;
+}
+
+.order-list p {
+  color: #666;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.4rem;
+}
+
+.order-item span.quantity {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.remove-btn {
+  margin-left: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* CHECKOUT BUTTON */
+#checkout-btn {
+  margin-top: 0.8rem;
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: #c62828;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#checkout-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+#checkout-btn:hover:not(:disabled) {
+  background: #b71c1c;
+}
+
+/* PAYMENT SECTION */
+#payment-section {
+  background: #fff5f5;
+  padding: 1rem;
+  border-top: 2px solid #b71c1c;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+#payment-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #b71c1c;
+}
+
+#total-price {
+  font-size: 1.1rem;
+  color: #c62828;
+  margin-bottom: 1rem;
+}
+
+/* Form pembayaran */
+#payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#payment-form label {
+  font-size: 1rem;
+  color: #d15757;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#payment-form input[type="radio"] {
+  accent-color: #d32f2f;
+  transform: scale(1.1);
+}
+
+/* Dropdown pilihan bank/ewallet */
+.sub-option {
+  margin-left: 1.8rem;
+}
+
+.sub-option label {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.sub-option select {
+  padding: 0.4rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+/* Hidden by default */
+.hidden {
+  display: none;
+}
+
+/* RESPONSIVE MODE - fallback ke vertical */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  #order-section {
+    border-left: none;
+    box-shadow: 0 -4px 10px #ccc;
+  }
+}

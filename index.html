@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderinaja - Pesan Makanan Online</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <img src="logo web.jpg">
+        <h1>OrderinAja</h1>
+        <p>Pesan makanan favoritmu dengan mudah dan cepat!</p>
+        <nav>
+            <ul>
+                <li><a href="halamanlogin.html" id="nav-login">Login</a></li>
+                <li><a href="halamanberanda.html" id="nav-home">Beranda</a></li>
+                <li><a href="index.html" id="nav-menu">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="menu-section">
+            <h2>Menu Kami</h2>
+            <div id="product-list" class="product-list">
+            </div>
+        </section>
+        <section id="order-section">
+            <h2>Pesanan Anda</h2>
+            <div id="order-list" class="order-list">
+                <p>Belum ada pesanan.</p>
+            </div>
+            <button id="checkout-btn" disabled>Checkout</button>
+        </section>
+        <section id="payment-section">
+            <h2>Metode Pembayaran</h2>
+            <div id="total-harga">
+                <strong>Total Harga:</strong> Rp <span id="total-amount">0</span>
+            </div>
+            <form id="payment-form">
+                <label>
+                    <input type="radio" name="payment" value="Transfer Bank" required>
+                    Transfer Bank
+                </label>
+                <div id="bank-options" class="sub-option hidden">
+                    <label for="bank-select">Pilih Bank:</label>
+                    <select id="bank-select" name="bank">
+                        <option value="">-- Pilih Bank --</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BNI">BNI</option>
+                        <option value="BRI">BRI</option>
+                        <option value="Mandiri">Mandiri</option>
+                    </select>
+                </div>
+                <label>
+                    <input type="radio" name="payment" value="e-Wallet">
+                    e-Wallet
+                </label>
+                <div id="ewallet-options" class="sub-option hidden">
+                    <label for="ewallet-select">Pilih e-Wallet:</label>
+                    <select id="ewallet-select" name="ewallet">
+                        <option value="">-- Pilih e-Wallet --</option>
+                        <option value="OVO">OVO</option>
+                        <option value="DANA">DANA</option>
+                        <option value="GoPay">GoPay</option>
+                        <option value="ShopeePay">ShopeePay</option>
+                    </select>
+                </div>
+                <label>
+                    <input type="radio" name="payment" value="COD">
+                    Cash on Delivery (COD)
+                </label>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 OrderinAja. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderin Aja </title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #000000,rgb(255, 0, 0) );
+        }
+        .utama{
+            width: 350px;
+            height: 500px;
+            background: red;
+            overflow: hidden;
+            background: #D82F16;
+            border-radius: 10px;
+            box-shadow: 0px 0px 50px 30px #e4c0c0;
+        }
+        #cek{
+            display: none;
+        }
+        .signup{
+            position: relative;
+            width: 105%;
+            height: 105%;
+            margin-top: 10px;
+            
+        }
+        label{
+            color: #fff;
+            font-size: large;
+            justify-content: center;
+            display: flex;
+            padding-top: 20px;
+            margin: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+        }
+        input{
+            width: 60%;
+            height: 10px;
+            background: #e0dede;
+            justify-content: center;
+            display: flex;
+            margin: 20px;
+            margin-left: 55px;
+            padding: 12px;
+            border: none;
+            outline: none;
+            border-radius: 5px;  
+        }
+        button{
+            width: 60%;
+            height: 40px;
+            margin: 10px;
+            margin-left: 67px;
+            justify-content: center;
+            display: block;
+            color:white;
+            background: #f36b27;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 30px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+            text-align: center;
+        }
+        button:hover{
+            background: #f89767;
+        }
+        .login{
+            height: 460px;
+            background: #faf8f8;
+            border-radius: 60%/ 10%;
+            transform: translateY(-180px);
+            transition: .8s ease-in-out;
+        }
+        .login label{
+            color: #D82F16;;
+            transform: scale(.6);
+        }
+        #cek:checked ~ .login{
+            transform: translateY(-500px);
+        }
+        #cek:checked ~ .login label{
+            transform: scale(1);
+        }
+        #cek:checked ~ .signup  label{
+            transform: scale(.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="utama">
+        <input type="checkbox" id="cek" aria-hidden="benar">
+        <div class="signup">
+            <form class="form-signup" id="signupForm" >
+                <label for="cek" aria-hidden="benar"> Sign Up</label>
+                <input type="text" name="text" placeholder="Masukkan User Name" required>
+                <input type="email" name="email" placeholder="Masukkan Email" required>
+                <input type="password" name="password" placeholder="Masukkan password" required>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+        <div class="login">
+            <form class="form-login" id="loginForm">
+                <label for="cek" aria-hidden="benar">Login</label>
+                <input type="email" placeholder="Masukkan Email" required>
+                <input type="password" name="password" placeholder="Masukkan password" required>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Login button
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Anda berhasil login!');
+            window.location.href = 'halamanberanda.html';
+        });
+
+        // Sign up button
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Anda berhasil sign up!');
+            window.location.href = 'halamanberanda.html';
+        });
+    </script>
+</body>
