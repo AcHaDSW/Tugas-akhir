@@ -128,16 +128,16 @@
     },
     {
         "id": 59,
-        "nama": "Bola-bola udang keju",
-        "deskripsi": "TBola-bola udang keju goreng crispy dengan isian keju lumer, camilan lezat yang bikin nagih",
+        "nama": "Tahu baso",
+        "deskripsi": "Tahu bakso isi daging sapi gurih dengan tekstur kenyal, camilan lezat yang menggugah selera",
         "harga": 15000,
-        "image": "bola bola udang keju.jpg"
+        "image": "tahu baso.jpg"
     },
     {
         "id": 60,
-        "nama": "Sosis goreng",
-        "deskripsi": "Sosis goreng juicy dengan balutan tepung crispy",
+        "nama": "Churros",
+        "deskripsi": "Churros renyah dengan taburan gula kayu manis dan saus cokelat lumer",
         "harga": 15000,
-        "image": "sosis goreng.jpg"
+        "image": "churros.jpg"
     }
 ]
