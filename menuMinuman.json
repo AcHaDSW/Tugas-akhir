@@ -1,139 +1,139 @@
 [
   {
-    "id": 1,
+    "id": 21,
     "nama": "Boba Brown Sugar",
     "deskripsi": "Boba brown sugar dengan paduan susu segar dan sirup gula aren yang manis legit",
     "harga": 20000,
     "image": "Boba brown sugar.jpg"
   },
   {
-    "id": 2,
+    "id": 22,
     "nama": "Thai Tea Green Tea",
     "deskripsi": "Thai tea dengan rasa manis khas dan green tea dengan aroma teh hijau segar",
     "harga": 15000,
     "image": "thai-green-tea-feature.jpg"
   },
   {
-    "id": 3,
+    "id": 23,
     "nama": "Es Kopi Susu Gula Aren",
     "deskripsi": "Kopi susu gula aren dengan paduan kopi, susu segar, dan sirup gula aren manis",
     "harga": 18000,
     "image": "Kopi susu gula aren.jpg"
   },
   {
-    "id": 4,
+    "id": 24,
     "nama": "Alpukat Kocok",
     "deskripsi": "Alpukat kocok adalah minuman creamy dengan rasa manis gurih dari alpukat dan susu",
     "harga": 13000,
     "image": "Alpukat kocok.jpg"
   },
   {
-    "id": 5,
+    "id": 25,
     "nama": "Fresh Lemonade",
     "deskripsi": "Lemonade adalah minuman segar dengan rasa asam manis dari lemon dan gula",
     "harga": 10000,
     "image": "Lemonade19-3.jpg"
   },
   {
-    "id": 6,
+    "id": 26,
     "nama": "Milkshake Cokelat",
     "harga": 15000,
     "deskripsi": "Milkshake rasa cokelat dengan topping whipped cream.",
     "image": "milkshake-cokelat.jpg"
   },
   {
-    "id": 7,
+    "id": 27,
     "nama": "Wedang Jahe",
     "harga": 7000,
     "deskripsi": "Minuman tradisional dari rebusan jahe dan gula merah.",
     "image": "wedang-jahe.jpg"
   },
   {
-    "id": 8,
+    "id": 28,
     "nama": "Lychee Yakult",
     "harga": 13000,
     "deskripsi": "Campuran yakult dan sirup leci dengan es batu.",
     "image": "lychee-yakult.jpg"
   },
   {
-    "id": 9,
+    "id": 29,
     "nama": "Soda Gembira",
     "harga": 12000,
     "deskripsi": "Minuman soda dengan sirup merah dan susu kental.",
     "image": "soda-gembira.jpg"
   },
   {
-    "id": 10,
+    "id": 30,
     "nama": "Air Mineral",
     "harga": 3000,
     "deskripsi": "Air mineral dingin dalam botol.",
     "image": "air-mineral.jpg"
   },
   {
-    "id": 11,
+    "id": 31,
     "nama": "Taro Latte",
     "harga": 14000,
     "deskripsi": "Minuman taro ungu dengan susu manis yang creamy dan menyegarkan.",
     "image": "taro-latte.jpg"
   },
   {
-    "id": 12,
+    "id": 32,
     "nama": "Teh Tarik",
     "harga": 10000,
     "deskripsi": "Teh susu khas Malaysia dengan rasa manis dan aroma teh kuat.",
     "image": "teh-tarik.jpg"
   },
   {
-    "id": 13,
+    "id": 33,
     "nama": "Choco Mint",
     "harga": 15000,
     "deskripsi": "Minuman cokelat dingin dengan rasa mint yang menyegarkan.",
     "image": "choco-mint.jpg"
   },
   {
-    "id": 14,
+    "id": 34,
     "nama": "Mango Smoothie",
     "harga": 13000,
     "deskripsi": "Minuman smoothie dari mangga segar dan susu.",
     "image": "mango-smoothie.jpg"
   },
   {
-    "id": 15,
+    "id": 35,
     "nama": "Strawberry Yakult",
     "harga": 14000,
     "deskripsi": "Yakult rasa stroberi dengan campuran sirup dan potongan buah asli.",
     "image": "strawberry-yakult.jpg"
   },
   {
-    "id": 16,
+    "id": 36,
     "nama": "Kopi Hitam",
     "harga": 8000,
     "deskripsi": "Kopi hitam tanpa gula dari biji kopi lokal pilihan.",
     "image": "kopi-hitam.jpg"
   },
   {
-    "id": 17,
+    "id": 37,
     "nama": "Es Markisa",
     "harga": 9000,
     "deskripsi": "Sirup markisa segar dengan es batu dan biji markisa.",
     "image": "es-markisa.jpg"
   },
   {
-    "id": 18,
+    "id": 38,
     "nama": "Jeruk Nipis Hangat",
     "harga": 7000,
     "deskripsi": "Air jeruk nipis hangat dengan madu, cocok untuk tenggorokan.",
     "image": "jeruk-nipis-hangat.jpg"
   },
   {
-    "id": 19,
+    "id": 39,
     "nama": "Es Cincau Hijau",
     "harga": 8000,
     "deskripsi": "Minuman tradisional dengan cincau hijau dan gula aren.",
     "image": "es-cincau-hijau.jpg"
   },
   {
-    "id": 20,
+    "id": 40,
     "nama": "Teh Melati",
     "harga": 9000,
     "deskripsi": "Teh wangi dengan aroma melati alami, cocok disajikan panas.",
