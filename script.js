@@ -17,8 +17,9 @@ document.getElementById("menu-section").prepend(searchInput);
 const filterSelect = document.createElement("select");
 filterSelect.innerHTML = `
   <option value="all">Semua</option>
-  <option value="makanan">Makanan Saja</option>
-  <option value="minuman">Minuman Saja</option>
+  <option value="makanan">Makanan</option>
+  <option value="minuman">Minuman</option>
+  <option value="snack">Snack</option>
 `;
 filterSelect.style.margin = "0 0 1rem 10px";
 searchInput.insertAdjacentElement("afterend", filterSelect);
