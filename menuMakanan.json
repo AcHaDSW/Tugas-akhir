@@ -15,31 +15,31 @@
     },
     {
         "id": 3,
-        "nama": "Mie Ayam Bakso",
-        "deskripsi": "Mie ayam hangat dengan bakso yang kenyal dan kuah kaldu yang gurih.",
-        "harga": 15000,
-        "image": "Mie ayam bakso.jpg"
+        "nama": "Rendang Padang",
+        "deskripsi": "Daging sapi empuk dimasak dengan bumbu rempah khas Minang yang kaya rasa dan pedas menggigit.",
+        "harga": 35000,
+        "image": "rendang_padang.jpg"
     },
     {
         "id": 4,
-        "nama": "Ramen",
-        "deskripsi": "Ramen adalah mie Jepang berkuah gurih dengan topping seperti daging, telur, dan sayuran.",
-        "harga": 40000,
-        "image": "Ramen.jpg"
+        "nama": "Rawon Surabaya",
+        "deskripsi": "Sup daging sapi dengan kuah hitam khas Surabaya yang kaya rempah dan empuk di lidah.",
+        "harga": 28000,
+        "image": "rawon_surabaya.jpg"
     },
     {
         "id": 5,
-        "nama": "Sate Taichan",
-        "deskripsi": "Sate ayam tanpa bumbu kacang, dibakar tanpa kecap dan disajikan dengan sambal pedas serta lontong.",
-        "harga": 30000,
-        "image": "Sate taichan.jpg"
+        "nama": "Ayam Betutu Bali",
+        "deskripsi": "Ayam utuh berbumbu khas Bali, dimasak dengan cara dibungkus daun dan dipanggang perlahan.",
+        "harga": 35000,
+        "image": "ayam_betutu_bali.jpg"
     },
     {
         "id": 6,
-        "nama": "Bakso Urat Pedas",
-        "deskripsi": "Bakso urat isi cabai dengan kuah gurih dan pedas mantap.",
-        "harga": 20000,
-        "image": "Bakso urat pedas.jpg"
+        "nama": "Ayam Goreng Kalasan",
+        "deskripsi": "Ayam goreng renyah dengan bumbu khas Kalasan yang gurih dan harum rempah.",
+        "harga": 28000,
+        "image": "ayam_goreng_kalasan.jpg"
     },
     {
         "id": 7,
@@ -49,11 +49,11 @@
         "image": "nasi ayam geprek.jpg"
     },
     {
-        "id": 8,
-        "nama": "Spaghetti Bolognese",
-        "deskripsi": "Spaghetti dengan saus daging sapi cincang dan tomat segar.",
-        "harga": 35000,
-        "image": "Spaghetti bolognese.jpg"
+        "id": 83,
+        "nama": "Ikan Patin Bumbu Kuning",
+        "deskripsi": "Ikan patin dimasak dengan bumbu kuning khas Indonesia yang gurih dan sedap.",
+        "harga": 32000,
+        "image": "ikan_patin_bumbu_kuning.jpg"
     },
     {
         "id": 9,
@@ -83,7 +83,6 @@
         "harga": 22000,
         "image": "Nasi Liwet.jpg"
     },
-
     {
         "id": 13,
         "nama": "Soto Ayam Lamongan",
@@ -93,17 +92,18 @@
     },
     {
         "id": 14,
-        "nama": "Pempek Palembang",
-        "deskripsi": "Pempek kapal selam dengan cuko pedas khas Palembang.",
-        "harga": 20000,
-        "image": "pempek-palembang.jpg"
+        "nama": "Ikan Bawal Bakar",
+        "deskripsi": "Ikan bawal segar dibakar dengan bumbu khas dan sambal kecap yang pedas manis.",
+        "harga": 35000,
+        "image": "ikan_bawal_bakar.jpg"
     },
     {
         "id": 15,
-        "nama": "Dimsum Komplit",
-        "deskripsi": "Paket dimsum kukus isi 5: siomay, hakau, dan undang.",
-        "harga": 25000,
-        "image": "Dimsum Komplit.jpg"
+        "nama": "Ikan Tongkol Balado",
+        "deskripsi": "Ikan tongkol dimasak dengan sambal balado pedas dan gurih khas Minang.",
+        "harga": 32000,
+        "image": "ikan_bawal_bakar.jpg"
+
     },
     {
         "id": 16,
@@ -114,30 +114,30 @@
     },
     {
         "id": 17,
-        "nama": "Seblak Ceker Pedas",
-        "deskripsi": "Seblak kuah pedas dengan isian kerupuk basah, ceker ayam, dan bakso.",
-        "harga": 17000,
-        "image": "Seblak ceker pedas.jpg"
+        "nama": "Pepes Ikan Tongkol",
+        "deskripsi": "Ikan tongkol dibumbui dengan rempah segar, dibungkus daun pisang dan dikukus hingga harum.",
+        "harga": 28000,
+        "image": "pepes_ikan_tongkol.jpg"
     },
     {
         "id": 18,
-        "nama": "Chicken Katsu Curry",
-        "deskripsi": "Ayam katsu renyah disiram saus kari Jepang dan nasi.",
-        "harga": 32000,
-        "image": "Chicken katsu curry.jpg"
+        "nama": "Kerang Rebus Saus Padang",
+        "deskripsi": "Kerang rebus disajikan dengan saus Padang pedas dan gurih, cocok untuk pecinta seafood.",
+        "harga": 30000,
+        "image": "kerang_rebus_saus_padang.jpg"
     },
     {
         "id": 19,
-        "nama": "Tahu Gejrot",
-        "deskripsi": "Tahu goreng dengan bumbu pedas manis khas Cirebon.",
-        "harga": 8000,
-        "image": "Tahu gejrot.jpg"
+        "nama": "Pepes Ikan Mas",
+        "deskripsi": "Ikan mas dibumbui dengan rempah segar dan dibungkus daun pisang, lalu dikukus hingga harum.",
+        "harga": 30000,
+        "image": "pepes_ikan_mas.jpg"
     },
     {
         "id": 20,
-        "nama": "Martabak Telur ",
-        "deskripsi": "Martabak telur isi daging cincang dan daun bawang.",
-        "harga": 15000,
-        "image": "Martabak-Telor.jpg"
+        "nama": "Gulai Ikan Kakap",
+        "deskripsi": "Ikan kakap dimasak dengan kuah gulai santan dan rempah khas Indonesia yang kaya rasa.",
+        "harga": 35000,
+        "image": "gulai_ikan_kakap.jpg"
     }
 ]
