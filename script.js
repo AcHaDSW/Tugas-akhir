@@ -7,6 +7,23 @@ const totalAmountEl = document.getElementById("total-amount");
 let products = [];
 let orders = [];
 
+// --- Buat elemen pencarian dan filter ---
+const searchInput = document.createElement("input");
+searchInput.type = "text";
+searchInput.placeholder = "Cari menu...";
+searchInput.style.marginBottom = "1rem";
+document.getElementById("menu-section").prepend(searchInput);
+
+const filterSelect = document.createElement("select");
+filterSelect.innerHTML = `
+  <option value="all">Semua</option>
+  <option value="makanan">Makanan Saja</option>
+  <option value="minuman">Minuman Saja</option>
+`;
+filterSelect.style.margin = "0 0 1rem 10px";
+searchInput.insertAdjacentElement("afterend", filterSelect);
+
+// --- Load menu dari JSON ---
 async function loadMenu() {
   try {
     const [resMakanan, resMinuman] = await Promise.all([
@@ -17,21 +34,26 @@ async function loadMenu() {
     const makanan = await resMakanan.json();
     const minuman = await resMinuman.json();
 
-    products = [...makanan, ...minuman];
-    displayProducts();
+    products = [
+      ...makanan.map(item => ({ ...item, jenis: "makanan" })),
+      ...minuman.map(item => ({ ...item, jenis: "minuman" }))
+    ];
+
+    displayProducts(products);
   } catch (error) {
     productListEl.innerHTML = '<p>Gagal memuat menu.</p>';
     console.error('Error loading menu:', error);
   }
 }
 
-function displayProducts() {
+// --- Tampilkan menu sesuai hasil filter dan pencarian ---
+function displayProducts(menuList) {
   productListEl.innerHTML = '';
-  products.forEach(product => {
+  menuList.forEach(product => {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
-      <img src="img/${product.image || 'placeholder.jpg'}" alt="${product.nama}" />
+      <img src="${product.image}" alt="${product.nama}" />
       <h3>${product.nama}</h3>
       <p class="description">${product.deskripsi}</p>
       <div class="price">Rp ${product.harga.toLocaleString('id-ID')}</div>
@@ -41,6 +63,7 @@ function displayProducts() {
   });
 }
 
+// --- Tambah ke pesanan ---
 function addToOrder(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
@@ -59,6 +82,7 @@ function addToOrder(productId) {
   renderOrderList();
 }
 
+// --- Hapus dari pesanan ---
 function removeFromOrder(productId) {
   const index = orders.findIndex(o => o.id === productId);
   if (index !== -1) {
@@ -67,6 +91,7 @@ function removeFromOrder(productId) {
   }
 }
 
+// --- Tampilkan daftar pesanan ---
 function renderOrderList() {
   orderListEl.innerHTML = '';
   if (orders.length === 0) {
@@ -91,11 +116,13 @@ function renderOrderList() {
   hitungTotal();
 }
 
+// --- Hitung total harga ---
 function hitungTotal() {
   const total = orders.reduce((sum, item) => sum + item.harga * item.quantity, 0);
   totalAmountEl.textContent = total.toLocaleString('id-ID');
 }
 
+// --- Checkout ---
 checkoutBtn.addEventListener('click', () => {
   if (orders.length === 0) return;
 
@@ -110,12 +137,12 @@ checkoutBtn.addEventListener('click', () => {
 
   alert(`Pesanan Anda sedang diproses.\nTotal: Rp ${total.toLocaleString('id-ID')}\nMetode: ${paymentMethod}`);
 
-  // Reset pesanan
   orders = [];
   renderOrderList();
   paymentForm.reset();
 });
 
+// --- Tampilkan opsi bank/e-wallet sesuai pilihan ---
 document.addEventListener("DOMContentLoaded", () => {
   const paymentRadios = document.querySelectorAll('input[name="payment"]');
   const bankOptions = document.getElementById("bank-options");
@@ -137,4 +164,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// --- Filter dan cari menu ---
+function filterAndSearch() {
+  const keyword = searchInput.value.toLowerCase();
+  const filter = filterSelect.value;
+
+  const filtered = products.filter(menu => {
+    const matchKeyword = menu.nama.toLowerCase().includes(keyword);
+    const matchType = filter === "all" || menu.jenis === filter;
+    return matchKeyword && matchType;
+  });
+
+  displayProducts(filtered);
+}
+
+searchInput.addEventListener("input", filterAndSearch);
+filterSelect.addEventListener("change", filterAndSearch);
+
+// --- Jalankan saat halaman dimuat ---
 window.addEventListener('DOMContentLoaded', loadMenu);
