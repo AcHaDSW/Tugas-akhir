@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orderin Aja </title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
     <style>
-        body{
+        body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
@@ -14,9 +15,10 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(to bottom, #000000,rgb(255, 0, 0) );
+            background: linear-gradient(to bottom, #000000, rgb(255, 0, 0));
         }
-        .utama{
+
+        .container {
             width: 350px;
             height: 500px;
             background: red;
@@ -25,17 +27,20 @@
             border-radius: 10px;
             box-shadow: 0px 0px 50px 30px #e4c0c0;
         }
-        #cek{
+
+        #cek {
             display: none;
         }
-        .signup{
+
+        .signup {
             position: relative;
             width: 105%;
             height: 105%;
             margin-top: 10px;
-            
+
         }
-        label{
+
+        label {
             color: #fff;
             font-size: large;
             justify-content: center;
@@ -46,7 +51,8 @@
             cursor: pointer;
             transition: .5s ease-in-out;
         }
-        input{
+
+        input {
             width: 60%;
             height: 10px;
             background: #e0dede;
@@ -57,16 +63,17 @@
             padding: 12px;
             border: none;
             outline: none;
-            border-radius: 5px;  
+            border-radius: 5px;
         }
-        button{
+
+        button {
             width: 60%;
             height: 40px;
             margin: 10px;
             margin-left: 67px;
             justify-content: center;
             display: block;
-            color:white;
+            color: white;
             background: #f36b27;
             font-size: 1em;
             font-weight: bold;
@@ -78,39 +85,47 @@
             cursor: pointer;
             text-align: center;
         }
-        button:hover{
+
+        button:hover {
             background: #f89767;
         }
-        .login{
+
+        .login {
             height: 460px;
             background: #faf8f8;
             border-radius: 60%/ 10%;
             transform: translateY(-180px);
             transition: .8s ease-in-out;
         }
-        .login label{
-            color: #D82F16;;
+
+        .login label {
+            color: #D82F16;
+            ;
             transform: scale(.6);
         }
-        #cek:checked ~ .login{
+
+        #cek:checked~.login {
             transform: translateY(-500px);
         }
-        #cek:checked ~ .login label{
+
+        #cek:checked~.login label {
             transform: scale(1);
         }
-        #cek:checked ~ .signup  label{
+
+        #cek:checked~.signup label {
             transform: scale(.6);
         }
     </style>
 </head>
+
 <body>
-    <div class="utama">
+    <div class="container">
         <input type="checkbox" id="cek" aria-hidden="benar">
         <div class="signup">
-            <form class="form-signup" id="signupForm" >
+            <form class="form-signup" id="signupForm">
                 <label for="cek" aria-hidden="benar"> Sign Up</label>
                 <input type="text" name="text" placeholder="Masukkan User Name" required>
-                <input type="email" name="email" placeholder="Masukkan Email" required>
+                <input type="email" name="email" id="email" placeholder="Masukkan Email" required>
                 <input type="password" name="password" placeholder="Masukkan password" required>
                 <button type="submit" class="signup-btn">Sign Up</button>
             </form>
@@ -119,24 +134,104 @@
             <form class="form-login" id="loginForm">
                 <label for="cek" aria-hidden="benar">Login</label>
                 <input type="email" placeholder="Masukkan Email" required>
-                <input type="password" name="password" placeholder="Masukkan password" required>
+                <input type="password" name="password" id="password" placeholder="Masukkan password" required>
                 <button type="submit" class="login-btn">Login</button>
             </form>
         </div>
     </div>
-    <script>
-        // Login button
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Anda berhasil login!');
-            window.location.href = 'halamanberanda.html';
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCjule_qtFeUPk1NQ8AoUG3X0wbJej-FLg",
+            authDomain: "authkelompok8.firebaseapp.com",
+            projectId: "authkelompok8",
+            storageBucket: "authkelompok8.firebasestorage.app",
+            messagingSenderId: "223246929628",
+            appId: "1:223246929628:web:114f77ef0e7c2c4919ae19",
+            measurementId: "G-N9J5PPHJX6"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const container = document.querySelector(".container");
+
+        const signupForm = document.getElementById("signupForm");
+        const loginForm = document.getElementById("loginForm");
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                Dashboard(user);
+            } else {
+            }
         });
 
-        // Sign up button
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
+        signupForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            alert('Anda berhasil sign up!');
-            window.location.href = 'halamanberanda.html';
+            const email = signupForm.querySelector("#email").value;
+            const password = signupForm.querySelector('input[name="password"]').value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((cred) => {
+                    alert(`Berhasil membuat akun: ${cred.user.email}`);
+                })
+                .catch((error) => {
+                    if (error.code === "auth/email-already-in-use") {
+                        alert("Email sudah digunakan. Silakan gunakan email lain atau login.");
+                    } else {
+                        alert(error.message);
+                    }
+                });
         });
+
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = loginForm.querySelector('input[type="email"]').value;
+            const password = loginForm.querySelector('input[name="password"]').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((cred) => {
+                    alert(`Selamat datang: ${cred.user.email}`);
+                    window.location.href = "halamanberanda.html"
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        });
+
+        const Dashboard = (user) => {
+            const element = document.createElement("div");
+            element.classList.add("Dasboard");
+            element.innerHTML = `
+            <div style="color:white; padding: 20px;">
+                <h2>Beranda</h2>
+                <p>Email: ${user.email}</p>
+                <p>UID: ${user.uid}</p>
+                <button data-button="logout" style="margin-top:20px; padding:10px;">Logout</button>
+            </div>
+        `;
+
+            container.innerHTML = "";
+            container.appendChild(element);
+
+            const logout = element.querySelector(`[data-button="logout"]`);
+            logout.onclick = () => {
+                signOut(auth)
+                    .then(() => {
+                        alert("Berhasil Logout");
+                        location.reload();
+                    })
+                    .catch((error) => alert(error.message));
+            };
+        };
     </script>
 </body>
+
+</html>
