@@ -24,120 +24,120 @@
         "id": 44,
         "nama": "Sempol",
         "deskripsi": "Sempol ayam crispy, gurih, dan lezat, cocok untuk camilan kapan saja",
-        "harga": 10000,
+        "harga": 2000,
         "image": "sempol.jpg"
     },
     {
         "id": 45,
         "nama": "Batagor",
-        "deskripsi": "Batagor crispy dengan bumbu kacang yang kaya rasa, siap memanjakan lidah Anda!",
+        "deskripsi": "Batagor crispy dengan bumbu kacang yang kaya rasa",
         "harga": 15000,
-        "image": "Batagor.jpg"
+        "image": "batagor.jpg"
     },
     {
         "id": 46,
         "nama": "Tahu tek",
-        "deskripsi": "Bakso urat isi cabai dengan kuah gurih dan pedas mantap.",
+        "deskripsi": "Tahu tek segar dengan saus kacang gurih dan taburan seledri",
         "harga": 20000,
-        "image": "Bakso urat pedas.jpg"
+        "image": "tahu tek.jpg"
     },
     {
         "id": 47,
         "nama": "Risol",
-        "deskripsi": "Ayam goreng geprek dengan sambal super pedas dan lalapan.",
-        "harga": 22000,
-        "image": "nasi ayam geprek.jpg"
+        "deskripsi": "Risol mayo isi sayur dengan kulit renyah, lezat untuk camilan atau makan ringan",
+        "harga": 3000,
+        "image": "risol.jpg"
     },
     {
         "id": 48,
         "nama": "Pisang molen",
-        "deskripsi": "Spaghetti dengan saus daging sapi cincang dan tomat segar.",
-        "harga": 35000,
-        "image": "Spaghetti bolognese.jpg"
+        "deskripsi": "Pisang molen manis dengan kulit renyah berlapis, sempurna untuk camilan",
+        "harga": 10000,
+        "image": "pisang molen.jpg"
     },
     {
         "id": 49,
         "nama": "Donat",
-        "deskripsi": "Kwetiau goreng dengan udang, cumi, dan sayuran.",
-        "harga": 28000,
-        "image": "kwetiau-goreng-seafood.jpg"
+        "deskripsi": "Donat lembut dengan topping manis nan menggoda, cocok untuk camilan.",
+        "harga": 8000,
+        "image": "donat.jpg"
     },
     {
         "id": 50,
         "nama": "Surabi Solo",
-        "deskripsi": "Ayam bakar dengan olesan madu dan sambal khas.",
-        "harga": 26000,
-        "image": "Ayam bakar madu.jpg"
+        "deskripsi": "Surabi Solo lembut dengan aroma kelapa dan topping manis, cita rasa tradisional yang memikat",
+        "harga": 3000,
+        "image": "serabi solo.jpg"
     },
     {
         "id": 51,
         "nama": "Lumpia",
-        "deskripsi": "Nasi kuning lengkap dengan telur, ayam suwir, dan sambal goreng.",
-        "harga": 18000,
-        "image": "Nasi Kuning Komplit.jpg"
+        "deskripsi": "Lumpia goreng renyah berisi sayuran segar dan daging, disajikan dengan saus manis pedas",
+        "harga": 3000,
+        "image": "lumpia.jpg"
     },
     {
         "id": 52,
         "nama": "Sosis Solo",
-        "deskripsi": "Nasi gurih dimasak dengan santan dan rempah, disajikan dengan ayam suwir, telur pindang, dan sambal terasi.",
-        "harga": 22000,
-        "image": "Nasi Liwet.jpg"
+        "deskripsi": "Sosis Solo renyah dengan isian daging ayam berbumbu gurih, camilan tradisional yang selalu menggoda",
+        "harga": 5000,
+        "image": "sosis solo.jpg"
     },
 
     {
         "id": 53,
         "nama": "Cireng",
-        "deskripsi": "Soto ayam dengan koya gurih, telur, dan sambal.",
-        "harga": 17000,
-        "image": "Soto Ayam Lamongan.jpg"
+        "deskripsi": "Cireng crispy dengan tekstur kenyal dan saus rujak pedas manis",
+        "harga":3000,
+        "image": "cireng.jpg"
     },
     {
         "id": 54,
         "nama": "Kentang goreng",
-        "deskripsi": "Pempek kapal selam dengan cuko pedas khas Palembang.",
-        "harga": 20000,
-        "image": "pempek-palembang.jpg"
+        "deskripsi": "Kentang goreng renyah dengan taburan bumbu gurih, camilan klasik yang selalu disukai",
+        "harga": 15000,
+        "image": "kentang goreng.jpg"
     },
     {
         "id": 55,
         "nama": "Tela-tela",
-        "deskripsi": "Paket dimsum kukus isi 5: siomay, hakau, dan undang.",
-        "harga": 25000,
-        "image": "Dimsum Komplit.jpg"
+        "deskripsi": "Tela-tela renyah dengan bumbu balado pedas manis, camilan ubi yang bikin ketagihan",
+        "harga": 15000,
+        "image": "tela tela.jpg"
     },
     {
         "id": 56,
         "nama": "Pangsit goreng",
-        "deskripsi": "Sayur capcay kuah segar dengan bakso dan ayam.",
-        "harga": 18000,
-        "image": "Capcay Kuah.jpg"
+        "deskripsi": "Pangsit goreng renyah dengan isian ayam gurih, sempurna untuk camilan atau pelengkap makan",
+        "harga": 15000,
+        "image": "pangsit goreng.jpg"
     },
     {
         "id": 57,
         "nama": "Udang keju",
-        "deskripsi": "Seblak kuah pedas dengan isian kerupuk basah, ceker ayam, dan bakso.",
-        "harga": 17000,
-        "image": "Seblak ceker pedas.jpg"
+        "deskripsi": "Udang keju goreng crispy dengan isian keju lumer, camilan premium yang memanjakan lidah",
+        "harga": 15000,
+        "image": "udang keju.jpg"
     },
     {
         "id": 58,
         "nama": "Udang rambutan",
-        "deskripsi": "Ayam katsu renyah disiram saus kari Jepang dan nasi.",
-        "harga": 32000,
-        "image": "Chicken katsu curry.jpg"
+        "deskripsi": "Udang rambutan renyah dengan balutan kulit pangsit yang gurih",
+        "harga": 15000,
+        "image": "udang rambutan.jpg"
     },
     {
         "id": 59,
         "nama": "Bola-bola udang keju",
-        "deskripsi": "Tahu goreng dengan bumbu pedas manis khas Cirebon.",
-        "harga": 8000,
-        "image": "Tahu gejrot.jpg"
+        "deskripsi": "TBola-bola udang keju goreng crispy dengan isian keju lumer, camilan lezat yang bikin nagih",
+        "harga": 15000,
+        "image": "bola bola udang keju.jpg"
     },
     {
         "id": 60,
         "nama": "Sosis goreng",
-        "deskripsi": "Martabak telur isi daging cincang dan daun bawang.",
+        "deskripsi": "Sosis goreng juicy dengan balutan tepung crispy",
         "harga": 15000,
-        "image": "Martabak-Telor.jpg"
+        "image": "sosis goreng.jpg"
     }
 ]
