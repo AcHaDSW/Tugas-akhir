@@ -23,62 +23,62 @@
     {
         "id": 44,
         "nama": "Sempol",
-        "deskripsi": "Ramen adalah mie Jepang berkuah gurih dengan topping seperti daging, telur, dan sayuran.",
+        "deskripsi": "Sempol ayam crispy, gurih, dan lezat, cocok untuk camilan kapan saja",
         "harga": 10000,
-        "image": "Ramen.jpg"
+        "image": "sempol.jpg"
     },
     {
         "id": 45,
-        "nama": "Sate Taichan",
-        "deskripsi": "Sate ayam tanpa bumbu kacang, dibakar tanpa kecap dan disajikan dengan sambal pedas serta lontong.",
-        "harga": 30000,
-        "image": "Sate taichan.jpg"
+        "nama": "Batagor",
+        "deskripsi": "Batagor crispy dengan bumbu kacang yang kaya rasa, siap memanjakan lidah Anda!",
+        "harga": 15000,
+        "image": "Batagor.jpg"
     },
     {
         "id": 46,
-        "nama": "Bakso Urat Pedas",
+        "nama": "Tahu tek",
         "deskripsi": "Bakso urat isi cabai dengan kuah gurih dan pedas mantap.",
         "harga": 20000,
         "image": "Bakso urat pedas.jpg"
     },
     {
         "id": 47,
-        "nama": "Nasi Ayam Geprek",
+        "nama": "Risol",
         "deskripsi": "Ayam goreng geprek dengan sambal super pedas dan lalapan.",
         "harga": 22000,
         "image": "nasi ayam geprek.jpg"
     },
     {
         "id": 48,
-        "nama": "Spaghetti Bolognese",
+        "nama": "Pisang molen",
         "deskripsi": "Spaghetti dengan saus daging sapi cincang dan tomat segar.",
         "harga": 35000,
         "image": "Spaghetti bolognese.jpg"
     },
     {
         "id": 49,
-        "nama": "Kwetiau Goreng Seafood",
+        "nama": "Donat",
         "deskripsi": "Kwetiau goreng dengan udang, cumi, dan sayuran.",
         "harga": 28000,
         "image": "kwetiau-goreng-seafood.jpg"
     },
     {
         "id": 50,
-        "nama": "Ayam Bakar Madu",
+        "nama": "Surabi Solo",
         "deskripsi": "Ayam bakar dengan olesan madu dan sambal khas.",
         "harga": 26000,
         "image": "Ayam bakar madu.jpg"
     },
     {
         "id": 51,
-        "nama": "Nasi Kuning Komplit",
+        "nama": "Lumpia",
         "deskripsi": "Nasi kuning lengkap dengan telur, ayam suwir, dan sambal goreng.",
         "harga": 18000,
         "image": "Nasi Kuning Komplit.jpg"
     },
     {
         "id": 52,
-        "nama": "Nasi Liwet",
+        "nama": "Sosis Solo",
         "deskripsi": "Nasi gurih dimasak dengan santan dan rempah, disajikan dengan ayam suwir, telur pindang, dan sambal terasi.",
         "harga": 22000,
         "image": "Nasi Liwet.jpg"
@@ -86,56 +86,56 @@
 
     {
         "id": 53,
-        "nama": "Soto Ayam Lamongan",
+        "nama": "Cireng",
         "deskripsi": "Soto ayam dengan koya gurih, telur, dan sambal.",
         "harga": 17000,
         "image": "Soto Ayam Lamongan.jpg"
     },
     {
         "id": 54,
-        "nama": "Pempek Palembang",
+        "nama": "Kentang goreng",
         "deskripsi": "Pempek kapal selam dengan cuko pedas khas Palembang.",
         "harga": 20000,
         "image": "pempek-palembang.jpg"
     },
     {
         "id": 55,
-        "nama": "Dimsum Komplit",
+        "nama": "Tela-tela",
         "deskripsi": "Paket dimsum kukus isi 5: siomay, hakau, dan undang.",
         "harga": 25000,
         "image": "Dimsum Komplit.jpg"
     },
     {
         "id": 56,
-        "nama": "Capcay Kuah",
+        "nama": "Pangsit goreng",
         "deskripsi": "Sayur capcay kuah segar dengan bakso dan ayam.",
         "harga": 18000,
         "image": "Capcay Kuah.jpg"
     },
     {
         "id": 57,
-        "nama": "Seblak Ceker Pedas",
+        "nama": "Udang keju",
         "deskripsi": "Seblak kuah pedas dengan isian kerupuk basah, ceker ayam, dan bakso.",
         "harga": 17000,
         "image": "Seblak ceker pedas.jpg"
     },
     {
         "id": 58,
-        "nama": "Chicken Katsu Curry",
+        "nama": "Udang rambutan",
         "deskripsi": "Ayam katsu renyah disiram saus kari Jepang dan nasi.",
         "harga": 32000,
         "image": "Chicken katsu curry.jpg"
     },
     {
         "id": 59,
-        "nama": "Tahu Gejrot",
+        "nama": "Bola-bola udang keju",
         "deskripsi": "Tahu goreng dengan bumbu pedas manis khas Cirebon.",
         "harga": 8000,
         "image": "Tahu gejrot.jpg"
     },
     {
         "id": 60,
-        "nama": "Martabak Telur ",
+        "nama": "Sosis goreng",
         "deskripsi": "Martabak telur isi daging cincang dan daun bawang.",
         "harga": 15000,
         "image": "Martabak-Telor.jpg"
