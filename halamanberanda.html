@@ -1,166 +1,244 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OrderinAja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OrderinAja - Pesan Makanan Online</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
     body {
-      background-color: #fff;
-      color: #333;
+    margin: 2;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    header, footer {
+    background: #D82F16;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    flex-shrink: 0;
     }
-
-    header {
-      background-color: #e53935;
-      padding: 20px 0;
-      text-align: center;
-      color: white;
-    }
-
-    header img {
-      width: 40px;
-      vertical-align: middle;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      margin: 0 10px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .hero {
-      background-image: url('header makanan.jpg');
-      /* path relatif */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 100vh;
-      /* menutupi seluruh tinggi layar */
+    header img{
+    align-content: flex-start;
+    width: 150px;
+    height: 100px;
+    border-radius: 5px;
+}
+    nav ul {
+      list-style: none;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
+      gap: 20px;
+      padding: 0;
+      margin: 10px 0;
+    }
+    nav a {
       color: white;
-      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
     }
-
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    main {
+      padding: 20px;
     }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+    .hidden {
+      display: none;
     }
-
-    .btn {
-      background-color: #e53935;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .container {
-      padding: 40px 20px;
-      max-width: 960px;
-      margin: auto;
-      text-align: center;
-    }
-
     .features {
       display: flex;
-      justify-content: space-around;
       flex-wrap: wrap;
-      margin-top: 30px;
+      justify-content: space-around;
+      margin-top: 20px;
     }
-
     .feature {
-      flex: 1 1 200px;
-      background: #f9f9f9;
+      flex: 1;
+      min-width: 250px;
       margin: 10px;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
     }
-
-    footer {
-      background-color: #e53935;
-      color: white;
+    .cta {
       text-align: center;
-      padding: 20px 0;
       margin-top: 40px;
     }
-
-    @media (max-width: 768px) {
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
+    .btn {
+      background-color: #f44336;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
     }
+    .product-list, .order-list {
+      margin-top: 10px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      gap: 10px;
+    }
+    
   </style>
 </head>
-
 <body>
   <header>
-    <img src="logo web.jpg" alt="OrderinAja Logo" />
+    <img src="logo web.jpg">
     <h1>OrderinAja</h1>
     <p>Pesan makanan favoritmu dengan mudah dan cepat!</p>
     <nav>
-      <a href="halamanlogin.html">Login</a>
-      <a href="#">Beranda</a>
-      <a href="index.html">Menu</a>
+      <ul>
+        <li><a href="halamanlogin.html" id="nav-login">Login</a></li>
+        <li><a href="#" id="nav-home">Beranda</a></li>
+        <li><a href="index.html" id="nav-menu">Menu</a></li>
+      </ul>
     </nav>
+
   </header>
 
-  <section class="hero">
-    <h1>OrderinAja</h1>
-    <p>Pesan makanan favoritmu dengan mudah dan cepat!</p>
-    <button class="btn">Lihat Menu</button>
-  </section>
-
-  <section class="container">
-    <h2>Selamat Datang di OrderinAja</h2>
-    <p>OrderinAja adalah solusi terbaik untuk memesan makanan favoritmu secara online. Tanpa repot, tanpa antri</p>
-
-    <div class="features">
-      <div class="feature">
-        <h3>🍴 Cepat & Praktis</h3>
-        <p>Pesan hanya dengan beberapa klik, makanan langsung diantar ke rumahmu.</p>
+  <main>
+    <section id="home-section">
+      <h2>Selamat Datang di OrderinAja</h2>
+      <p>OrderinAja adalah solusi terbaik untuk memesan makanan favoritmu secara online. Tanpa repot, tanpa antri</p>
+      <div class="features">
+        <div class="feature">
+          <h3>🛵 Cepat & Praktis</h3>
+          <p>Pesan hanya dengan beberapa klik, makanan langsung diantar ke rumahmu.</p>
+        </div>
+        <div class="feature">
+          <h3>🍽️ Menu Variatif</h3>
+          <p>Dari makanan tradisional sampai kekinian, semuanya tersedia di OrderinAja.</p>
+        </div>
+        <div class="feature">
+          <h3>💳 Pembayaran Mudah</h3>
+          <p>Dukungan berbagai metode pembayaran digital yang aman dan nyaman.</p>
+        </div>
       </div>
-      <div class="feature">
-        <h3>🍱 Menu Variatif</h3>
-        <p>Dari makanan tradisional sampai kekinian, semuanya tersedia di OrderinAja.</p>
+      <div class="cta">
+        <h3>Yuk mulai pesan makananmu sekarang!</h3>
+        <a href="index.html" id="get-started-btn" class="btn">Lihat Menu</a>
       </div>
-      <div class="feature">
-        <h3>💳 Pembayaran Mudah</h3>
-        <p>Dukungan berbagai metode pembayaran digital yang aman dan nyaman.</p>
-      </div>
-    </div>
+    </section>
 
-    <h3 style="margin-top: 40px;">Yuk mulai pesan makananmu sekarang!</h3>
-    <button class="btn">Lihat Menu</button>
-  </section>
+    <!-- Menu -->
+    <section id="menu-section" class="hidden">
+      <h2>Menu Kami</h2>
+      <div id="product-list" class="product-list">
+      </div>
+    </section>
+
+    <!-- Pesanan -->
+    <section id="order-section" class="hidden">
+      <h2>Pesanan Anda</h2>
+      <div id="order-list" class="order-list">
+        <p>Belum ada pesanan.</p>
+      </div>
+      <button id="checkout-btn" disabled>Checkout</button>
+    </section>
+
+    <!-- Login -->
+    <section id="login-section" class="hidden">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2024 OrderinAja. All rights reserved.</p>
+    <p>&copy; 2024 OrderinAja. All rights reserved.</p>
   </footer>
-</body>
 
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = {
+      home: document.getElementById("home-section"),
+      menu: document.getElementById("menu-section"),
+      order: document.getElementById("order-section"),
+      login: document.getElementById("login-section"),
+    };
+
+    const productList = document.getElementById("product-list");
+    const orderList = document.getElementById("order-list");
+    const checkoutBtn = document.getElementById("checkout-btn");
+    const orderItems = [];
+
+
+
+    // Tampilkan produk di menu
+    products.forEach(product => {
+      const item = document.createElement("div");
+      item.innerHTML = `
+        <strong>${product.name}</strong> - Rp${product.price.toLocaleString()}
+        <button class="btn">Tambah</button>
+      `;
+      item.querySelector("button").addEventListener("click", () => {
+        orderItems.push(product);
+        updateOrderList();
+        showSection("order");
+      });
+      productList.appendChild(item);
+    });
+
+    function updateOrderList() {
+      orderList.innerHTML = "";
+      if (orderItems.length === 0) {
+        orderList.innerHTML = "<p>Belum ada pesanan.</p>";
+        checkoutBtn.disabled = true;
+        return;
+      }
+
+      orderItems.forEach(item => {
+        const el = document.createElement("p");
+        el.textContent = `${item.name} - Rp${item.price.toLocaleString()}`;
+        orderList.appendChild(el);
+      });
+
+      checkoutBtn.disabled = false;
+    }
+
+    function showSection(sectionName) {
+      for (const key in sections) {
+        sections[key].classList.add("hidden");
+      }
+      sections[sectionName].classList.remove("hidden");
+    }
+
+    // Navigasi
+    document.getElementById("nav-login").addEventListener("click", (e) => {
+      e.preventDefault();
+      showSection("login");
+    });
+
+    document.getElementById("nav-home").addEventListener("click", (e) => {
+      e.preventDefault();
+      showSection("home");
+    });
+
+    document.getElementById("nav-menu").addEventListener("click", (e) => {
+      e.preventDefault();
+      showSection("menu");
+    });
+
+    // Form login
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      alert(`Selamat datang, ${user}!`);
+      showSection("home");
+    });
+
+    // Default tampilkan halaman home
+    showSection("home");
+  });
+</script>
+
+</body>
 </html>
