@@ -18,28 +18,28 @@
         "nama": "Rendang Padang",
         "deskripsi": "Daging sapi empuk dimasak dengan bumbu rempah khas Minang yang kaya rasa dan pedas menggigit.",
         "harga": 35000,
-        "image": "rendang_padang.jpg"
+        "image": "rendang-padang.jpg"
     },
     {
         "id": 4,
         "nama": "Rawon Surabaya",
         "deskripsi": "Sup daging sapi dengan kuah hitam khas Surabaya yang kaya rempah dan empuk di lidah.",
         "harga": 28000,
-        "image": "rawon_surabaya.jpg"
+        "image": "rawon surabaya.jpg"
     },
     {
         "id": 5,
         "nama": "Ayam Betutu Bali",
         "deskripsi": "Ayam utuh berbumbu khas Bali, dimasak dengan cara dibungkus daun dan dipanggang perlahan.",
         "harga": 35000,
-        "image": "ayam_betutu_bali.jpg"
+        "image": "ayam betutu.jpg"
     },
     {
         "id": 6,
         "nama": "Ayam Goreng Kalasan",
         "deskripsi": "Ayam goreng renyah dengan bumbu khas Kalasan yang gurih dan harum rempah.",
         "harga": 28000,
-        "image": "ayam_goreng_kalasan.jpg"
+        "image": "ayam kalasan.jpg"
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "nama": "Ikan Patin Bumbu Kuning",
         "deskripsi": "Ikan patin dimasak dengan bumbu kuning khas Indonesia yang gurih dan sedap.",
         "harga": 32000,
-        "image": "ikan_patin_bumbu_kuning.jpg"
+        "image": "patin masak kuning.jpg"
     },
     {
         "id": 9,
@@ -95,14 +95,14 @@
         "nama": "Ikan Bawal Bakar",
         "deskripsi": "Ikan bawal segar dibakar dengan bumbu khas dan sambal kecap yang pedas manis.",
         "harga": 35000,
-        "image": "ikan_bawal_bakar.jpg"
+        "image": "bawal bakar.jpg"
     },
     {
         "id": 15,
         "nama": "Ikan Tongkol Balado",
         "deskripsi": "Ikan tongkol dimasak dengan sambal balado pedas dan gurih khas Minang.",
         "harga": 32000,
-        "image": "ikan_bawal_bakar.jpg"
+        "image": "tongko balado.jpg"
 
     },
     {
@@ -117,27 +117,27 @@
         "nama": "Pepes Ikan Tongkol",
         "deskripsi": "Ikan tongkol dibumbui dengan rempah segar, dibungkus daun pisang dan dikukus hingga harum.",
         "harga": 28000,
-        "image": "pepes_ikan_tongkol.jpg"
+        "image": "pepes tongkol.jpg"
     },
     {
         "id": 18,
         "nama": "Kerang Rebus Saus Padang",
         "deskripsi": "Kerang rebus disajikan dengan saus Padang pedas dan gurih, cocok untuk pecinta seafood.",
         "harga": 30000,
-        "image": "kerang_rebus_saus_padang.jpg"
+        "image": "kerang saos padang.jpg"
     },
     {
         "id": 19,
         "nama": "Pepes Ikan Mas",
         "deskripsi": "Ikan mas dibumbui dengan rempah segar dan dibungkus daun pisang, lalu dikukus hingga harum.",
         "harga": 30000,
-        "image": "pepes_ikan_mas.jpg"
+        "image": "pepes ikan mas.jpg"
     },
     {
         "id": 20,
         "nama": "Gulai Ikan Kakap",
         "deskripsi": "Ikan kakap dimasak dengan kuah gulai santan dan rempah khas Indonesia yang kaya rasa.",
         "harga": 35000,
-        "image": "gulai_ikan_kakap.jpg"
+        "image": "gulai kakap.jpg"
     }
 ]
