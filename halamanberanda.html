@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OrderinAja - Pesan Makanan Online</title>
   <style>
     body {
-    margin: 2;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-    header, footer {
-    background: #D82F16;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    flex-shrink: 0;
+      margin: 2;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    header img{
-    align-content: flex-start;
-    width: 150px;
-    height: 100px;
-    border-radius: 5px;
-}
+
+    header {
+      background: #D82F16;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      flex-shrink: 0;
+      background-image: url(bg2.jpg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      height: 300px;
+    }
+    header h1{
+      margin-top: 100px;
+    }
+    footer {
+      background: #D82F16;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -32,23 +43,28 @@
       padding: 0;
       margin: 10px 0;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
+
     main {
       padding: 20px;
     }
+
     .hidden {
       display: none;
     }
+
     .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       margin-top: 20px;
     }
+
     .feature {
       flex: 1;
       min-width: 250px;
@@ -58,10 +74,12 @@
       border-radius: 8px;
       background-color: #f9f9f9;
     }
+
     .cta {
       text-align: center;
       margin-top: 40px;
     }
+
     .btn {
       background-color: #f44336;
       color: white;
@@ -72,26 +90,23 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .product-list, .order-list {
+
+    .product-list,
+    .order-list {
       margin-top: 10px;
     }
+
     form {
       display: flex;
       flex-direction: column;
       max-width: 300px;
       gap: 10px;
     }
-    main{
-      background-image: url(bg2.jpg);
-      background-repeat: no-repeat;
-      background-size: 100%;
-    }
-    
   </style>
 </head>
+
 <body>
   <header>
-    <img src="logo web.jpg">
     <h1>Dapur Kenangan</h1>
     <p>Tempatnya rasa yang bikin kangen.Tanpa antre, tanpa kehilangan hangatnya kenangan</p>
     <nav>
@@ -161,89 +176,90 @@
     <p>&copy; 2024 Dapur Kenangan. All rights reserved.</p>
   </footer>
 
- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = {
-      home: document.getElementById("home-section"),
-      menu: document.getElementById("menu-section"),
-      order: document.getElementById("order-section"),
-      login: document.getElementById("login-section"),
-    };
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = {
+        home: document.getElementById("home-section"),
+        menu: document.getElementById("menu-section"),
+        order: document.getElementById("order-section"),
+        login: document.getElementById("login-section"),
+      };
 
-    const productList = document.getElementById("product-list");
-    const orderList = document.getElementById("order-list");
-    const checkoutBtn = document.getElementById("checkout-btn");
-    const orderItems = [];
+      const productList = document.getElementById("product-list");
+      const orderList = document.getElementById("order-list");
+      const checkoutBtn = document.getElementById("checkout-btn");
+      const orderItems = [];
 
 
 
-    // Tampilkan produk di menu
-    products.forEach(product => {
-      const item = document.createElement("div");
-      item.innerHTML = `
+      // Tampilkan produk di menu
+      products.forEach(product => {
+        const item = document.createElement("div");
+        item.innerHTML = `
         <strong>${product.name}</strong> - Rp${product.price.toLocaleString()}
         <button class="btn">Tambah</button>
       `;
-      item.querySelector("button").addEventListener("click", () => {
-        orderItems.push(product);
-        updateOrderList();
-        showSection("order");
-      });
-      productList.appendChild(item);
-    });
-
-    function updateOrderList() {
-      orderList.innerHTML = "";
-      if (orderItems.length === 0) {
-        orderList.innerHTML = "<p>Belum ada pesanan.</p>";
-        checkoutBtn.disabled = true;
-        return;
-      }
-
-      orderItems.forEach(item => {
-        const el = document.createElement("p");
-        el.textContent = `${item.name} - Rp${item.price.toLocaleString()}`;
-        orderList.appendChild(el);
+        item.querySelector("button").addEventListener("click", () => {
+          orderItems.push(product);
+          updateOrderList();
+          showSection("order");
+        });
+        productList.appendChild(item);
       });
 
-      checkoutBtn.disabled = false;
-    }
+      function updateOrderList() {
+        orderList.innerHTML = "";
+        if (orderItems.length === 0) {
+          orderList.innerHTML = "<p>Belum ada pesanan.</p>";
+          checkoutBtn.disabled = true;
+          return;
+        }
 
-    function showSection(sectionName) {
-      for (const key in sections) {
-        sections[key].classList.add("hidden");
+        orderItems.forEach(item => {
+          const el = document.createElement("p");
+          el.textContent = `${item.name} - Rp${item.price.toLocaleString()}`;
+          orderList.appendChild(el);
+        });
+
+        checkoutBtn.disabled = false;
       }
-      sections[sectionName].classList.remove("hidden");
-    }
 
-    // Navigasi
-    document.getElementById("nav-login").addEventListener("click", (e) => {
-      e.preventDefault();
-      showSection("login");
-    });
+      function showSection(sectionName) {
+        for (const key in sections) {
+          sections[key].classList.add("hidden");
+        }
+        sections[sectionName].classList.remove("hidden");
+      }
 
-    document.getElementById("nav-home").addEventListener("click", (e) => {
-      e.preventDefault();
+      // Navigasi
+      document.getElementById("nav-login").addEventListener("click", (e) => {
+        e.preventDefault();
+        showSection("login");
+      });
+
+      document.getElementById("nav-home").addEventListener("click", (e) => {
+        e.preventDefault();
+        showSection("home");
+      });
+
+      document.getElementById("nav-menu").addEventListener("click", (e) => {
+        e.preventDefault();
+        showSection("menu");
+      });
+
+      // Form login
+      document.getElementById("login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const user = document.getElementById("username").value;
+        alert(`Selamat datang, ${user}!`);
+        showSection("home");
+      });
+
+      // Default tampilkan halaman home
       showSection("home");
     });
-
-    document.getElementById("nav-menu").addEventListener("click", (e) => {
-      e.preventDefault();
-      showSection("menu");
-    });
-
-    // Form login
-    document.getElementById("login-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const user = document.getElementById("username").value;
-      alert(`Selamat datang, ${user}!`);
-      showSection("home");
-    });
-
-    // Default tampilkan halaman home
-    showSection("home");
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
