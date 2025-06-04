@@ -27,17 +27,20 @@ searchInput.insertAdjacentElement("afterend", filterSelect);
 // --- Load menu dari JSON ---
 async function loadMenu() {
   try {
-    const [resMakanan, resMinuman] = await Promise.all([
+    const [resMakanan, resMinuman,resSnack] = await Promise.all([
       fetch('menuMakanan.json'),
-      fetch('menuMinuman.json')
+      fetch('menuMinuman.json'),
+      fetch('menuSnack.json')
     ]);
 
     const makanan = await resMakanan.json();
     const minuman = await resMinuman.json();
+    const snack = await resSnack.json();
 
     products = [
       ...makanan.map(item => ({ ...item, jenis: "makanan" })),
-      ...minuman.map(item => ({ ...item, jenis: "minuman" }))
+      ...minuman.map(item => ({ ...item, jenis: "minuman" })),
+      ...snack.map(item => ({ ...item, jenis: "snack" }))
     ];
 
     displayProducts(products);
