@@ -53,7 +53,7 @@ function displayProducts(menuList) {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.nama}" />
+      <img src="img/${product.image || 'img'}" alt="${product.nama}" />
       <h3>${product.nama}</h3>
       <p class="description">${product.deskripsi}</p>
       <div class="price">Rp ${product.harga.toLocaleString('id-ID')}</div>
