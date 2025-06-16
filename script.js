@@ -33,31 +33,6 @@ filterSelect.innerHTML = `
 `;
 filterSelect.style.margin = "0 0 1rem 10px";
 searchInput.insertAdjacentElement("afterend", filterSelect);
-
-<<<<<<< HEAD
-// --- Load menu dari JSON ---
-=======
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCjule_qtFeUPk1NQ8AoUG3X0wbJej-FLg",
-  authDomain: "authkelompok8.firebaseapp.com",
-  databaseURL: "https://authkelompok8-default-rtdb.firebaseio.com",
-  projectId: "authkelompok8",
-  storageBucket: "authkelompok8.firebasestorage.app",
-  messagingSenderId: "223246929628",
-  appId: "1:223246929628:web:114f77ef0e7c2c4919ae19",
-  measurementId: "G-N9J5PPHJX6"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-const analytics = getAnalytics(app);
-
->>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
 async function loadMenu() {
   try {
     const [resMakanan, resMinuman,resSnack] = await Promise.all([
@@ -154,13 +129,6 @@ function hitungTotal() {
   totalAmountEl.textContent = total.toLocaleString('id-ID');
 }
 
-<<<<<<< HEAD
-// --- Checkout ---
-checkoutBtn.addEventListener('click', () => {
-=======
-// --- Checkout dengan Nomor Meja ---
-checkoutBtn.addEventListener("click", () => {
->>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
   if (orders.length === 0) return;
 
   const selectedPayment = paymentForm.querySelector('input[name="payment"]:checked');
@@ -178,17 +146,8 @@ checkoutBtn.addEventListener("click", () => {
   const paymentMethod = selectedPayment.value;
   const total = orders.reduce((sum, order) => sum + order.harga * order.quantity, 0);
 
-<<<<<<< HEAD
-  alert(`Pesanan Anda sedang diproses.\nTotal: Rp ${total.toLocaleString('id-ID')}\nMetode: ${paymentMethod}`);
-=======
-  alert(
-    `Pesanan Anda sedang diproses.\n` +
-    `Nomor Meja: ${tableNumber}\n` +
-    `Total: Rp ${total.toLocaleString("id-ID")}\n` +
-    `Metode: ${paymentMethod}`
-  );
->>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
 
+  alert(`Pesanan Anda sedang diproses.\nTotal: Rp ${total.toLocaleString('id-ID')}\nMetode: ${paymentMethod}`);
   orders = [];
   renderOrderList();
   paymentForm.reset();
@@ -230,10 +189,3 @@ function filterAndSearch() {
 
 searchInput.addEventListener("input", filterAndSearch);
 filterSelect.addEventListener("change", filterAndSearch);
-
-<<<<<<< HEAD
-// --- Jalankan saat halaman dimuat ---
-window.addEventListener('DOMContentLoaded', loadMenu);
-=======
-window.addEventListener("DOMContentLoaded", loadMenu);
->>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
