@@ -16,54 +16,41 @@ body {
 
 /* HEADER */
 header {
-  background: #D82F16;
+  background: #a5550a;
   color: white;
-  padding: 16px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-header img {
-  height: 50px;
-  border-radius: 5px;
-}
-
-header h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.header-right {
+  padding: 10px;
+  font-size: larger;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
+  text-align: center;
+  height: 150px;
 }
 
-.header-right p {
-  font-size: 14px;
-  margin: 0;
+header h1,p{
+  margin: 5px;
 }
 
-nav {
+footer {
+  background: #a5550a;
+  color: white;
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+nav ul {
+  list-style: none;
   display: flex;
-  gap: 24px;
+  text-align: center;
+  gap: 20px;
+  padding: 0;
+  justify-content: center;
+  margin: 10px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 15px;
-  transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -156,7 +143,7 @@ main {
 .product-card h3 {
   font-size: 15px;
   margin-bottom: 3px;
-  color: #d32f2f;
+  color: #a5550a;
   line-height: 17px;
   height: 35px;
   overflow: hidden;
@@ -174,12 +161,12 @@ main {
 .product-card .price {
   font-size: 13px;
   font-weight: bold;
-  color: #c62828;
+  color: #a5550a;
   margin-bottom: 6px;
 }
 
 .product-card button {
-  background: #d32f2f;
+  background: #a5550a;
   border: none;
   color: white;
   padding: 6px;
@@ -190,7 +177,7 @@ main {
 }
 
 .product-card button:hover {
-  background: #b71c1c;
+  background: #a5550a;
 }
 
 /* ORDER & PAYMENT SECTION */
@@ -210,7 +197,7 @@ main {
 #payment-section h2 {
   font-size: 19px;
   margin-bottom: 8px;
-  border-bottom: 2px solid #d32f2f;
+  border-bottom: 2px solid #a5550a;
 }
 
 /* ORDER LIST */
@@ -230,7 +217,7 @@ main {
 }
 
 .remove-btn {
-  background-color: #f44336;
+  background-color: #a5550a;
   color: white;
   border: none;
   padding: 2px 8px;
@@ -246,7 +233,7 @@ main {
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background: #c62828;
+  background: #a5550a;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -289,7 +276,7 @@ main {
 #total-harga {
   margin-top: 8px;
   font-weight: bold;
-  color: #c62828;
+  color: #a5550a;
 }
 
 .hidden {
@@ -298,7 +285,7 @@ main {
 
 /* FOOTER */
 footer {
-  background: #D82F16;
+  background: #a5550a;
   color: white;
   text-align: center;
   padding: 13px;
