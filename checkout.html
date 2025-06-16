@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antrian Pesanan</title>
+  <style>
+    .order-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f9f9f9;
+    }
+    .order-card h3 {
+      margin: 0 0 0.5rem;
+    }
+    .order-card ul {
+      padding-left: 1rem;
+    }
+    .selesai-btn {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daftar Antrian Pesanan</h1>
+  <div id="order-list"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase, ref, get, child, update } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCjule_qtFeUPk1NQ8AoUG3X0wbJej-FLg",
+      authDomain: "authkelompok8.firebaseapp.com",
+      databaseURL: "https://authkelompok8-default-rtdb.firebaseio.com",
+      projectId: "authkelompok8",
+      storageBucket: "authkelompok8.firebasestorage.app",
+      messagingSenderId: "223246929628",
+      appId: "1:223246929628:web:114f77ef0e7c2c4919ae19",
+      measurementId: "G-N9J5PPHJX6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const orderListEl = document.getElementById("order-list");
+
+    async function loadOrders() {
+      const dbRef = ref(db);
+      const snapshot = await get(child(dbRef, 'pesanan'));
+      if (!snapshot.exists()) {
+        orderListEl.innerHTML = "<p>Tidak ada pesanan.</p>";
+        return;
+      }
+
+      const orders = snapshot.val();
+      orderListEl.innerHTML = ""; 
+      Object.entries(orders).forEach(([orderId, order]) => {
+        const card = document.createElement("div");
+        card.className = "order-card";
+        card.innerHTML = `
+          <h3>Pemesanan</h3>
+          <p><strong>Waktu:</strong> ${new Date(order.waktu).toLocaleString("id-ID")}</p>
+          <p><strong>Metode:</strong> ${order.metode}</p>
+          <p><strong>Status:</strong> ${order.status}</p>
+          <p><strong>Total:</strong> Rp ${order.total.toLocaleString("id-ID")}</p>
+          <ul>
+            ${order.items.map(item => `<li>${item.nama} x${item.quantity}</li>`).join("")}
+          </ul>
+          <button class="selesai-btn" data-id="${orderId}">Selesai</button>
+        `;
+        orderListEl.appendChild(card);
+      });
+
+      document.querySelectorAll(".selesai-btn").forEach(button => {
+        button.addEventListener("click", async () => {
+          const orderId = button.getAttribute("data-id");
+          const konfirmasi = confirm("Tandai pesanan ini sebagai selesai?");
+          if (!konfirmasi) return;
+
+          await update(ref(db, 'pesanan/' + orderId), {
+            status: "selesai"
+          });
+
+          loadOrders();
+        });
+      });
+    }
+    loadOrders();
+  </script>
+</body>
+</html>
