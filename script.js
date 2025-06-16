@@ -7,6 +7,16 @@ const totalAmountEl = document.getElementById("total-amount");
 let products = [];
 let orders = [];
 
+// --- Input Nomor Meja ---
+const tableNumberInput = document.createElement("input");
+tableNumberInput.type = "number";
+tableNumberInput.id = "table-number";
+tableNumberInput.placeholder = "Nomor Meja";
+tableNumberInput.min = 1;
+tableNumberInput.required = true;
+tableNumberInput.style.marginBottom = "1rem";
+paymentForm.prepend(tableNumberInput);
+
 // --- Buat elemen pencarian dan filter ---
 const searchInput = document.createElement("input");
 searchInput.type = "text";
@@ -24,7 +34,30 @@ filterSelect.innerHTML = `
 filterSelect.style.margin = "0 0 1rem 10px";
 searchInput.insertAdjacentElement("afterend", filterSelect);
 
+<<<<<<< HEAD
 // --- Load menu dari JSON ---
+=======
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCjule_qtFeUPk1NQ8AoUG3X0wbJej-FLg",
+  authDomain: "authkelompok8.firebaseapp.com",
+  databaseURL: "https://authkelompok8-default-rtdb.firebaseio.com",
+  projectId: "authkelompok8",
+  storageBucket: "authkelompok8.firebasestorage.app",
+  messagingSenderId: "223246929628",
+  appId: "1:223246929628:web:114f77ef0e7c2c4919ae19",
+  measurementId: "G-N9J5PPHJX6"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const analytics = getAnalytics(app);
+
+>>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
 async function loadMenu() {
   try {
     const [resMakanan, resMinuman,resSnack] = await Promise.all([
@@ -50,7 +83,6 @@ async function loadMenu() {
   }
 }
 
-// --- Tampilkan menu sesuai hasil filter dan pencarian ---
 function displayProducts(menuList) {
   productListEl.innerHTML = '';
   menuList.forEach(product => {
@@ -67,7 +99,6 @@ function displayProducts(menuList) {
   });
 }
 
-// --- Tambah ke pesanan ---
 function addToOrder(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
@@ -86,7 +117,6 @@ function addToOrder(productId) {
   renderOrderList();
 }
 
-// --- Hapus dari pesanan ---
 function removeFromOrder(productId) {
   const index = orders.findIndex(o => o.id === productId);
   if (index !== -1) {
@@ -95,7 +125,6 @@ function removeFromOrder(productId) {
   }
 }
 
-// --- Tampilkan daftar pesanan ---
 function renderOrderList() {
   orderListEl.innerHTML = '';
   if (orders.length === 0) {
@@ -120,14 +149,18 @@ function renderOrderList() {
   hitungTotal();
 }
 
-// --- Hitung total harga ---
 function hitungTotal() {
   const total = orders.reduce((sum, item) => sum + item.harga * item.quantity, 0);
   totalAmountEl.textContent = total.toLocaleString('id-ID');
 }
 
+<<<<<<< HEAD
 // --- Checkout ---
 checkoutBtn.addEventListener('click', () => {
+=======
+// --- Checkout dengan Nomor Meja ---
+checkoutBtn.addEventListener("click", () => {
+>>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
   if (orders.length === 0) return;
 
   const selectedPayment = paymentForm.querySelector('input[name="payment"]:checked');
@@ -136,17 +169,31 @@ checkoutBtn.addEventListener('click', () => {
     return;
   }
 
+  const tableNumber = document.getElementById("table-number").value;
+  if (!tableNumber || parseInt(tableNumber) <= 0) {
+    alert("Silakan masukkan nomor meja yang valid.");
+    return;
+  }
+
   const paymentMethod = selectedPayment.value;
   const total = orders.reduce((sum, order) => sum + order.harga * order.quantity, 0);
 
+<<<<<<< HEAD
   alert(`Pesanan Anda sedang diproses.\nTotal: Rp ${total.toLocaleString('id-ID')}\nMetode: ${paymentMethod}`);
+=======
+  alert(
+    `Pesanan Anda sedang diproses.\n` +
+    `Nomor Meja: ${tableNumber}\n` +
+    `Total: Rp ${total.toLocaleString("id-ID")}\n` +
+    `Metode: ${paymentMethod}`
+  );
+>>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
 
   orders = [];
   renderOrderList();
   paymentForm.reset();
 });
 
-// --- Tampilkan opsi bank/e-wallet sesuai pilihan ---
 document.addEventListener("DOMContentLoaded", () => {
   const paymentRadios = document.querySelectorAll('input[name="payment"]');
   const bankOptions = document.getElementById("bank-options");
@@ -168,7 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- Filter dan cari menu ---
 function filterAndSearch() {
   const keyword = searchInput.value.toLowerCase();
   const filter = filterSelect.value;
@@ -185,5 +231,9 @@ function filterAndSearch() {
 searchInput.addEventListener("input", filterAndSearch);
 filterSelect.addEventListener("change", filterAndSearch);
 
+<<<<<<< HEAD
 // --- Jalankan saat halaman dimuat ---
 window.addEventListener('DOMContentLoaded', loadMenu);
+=======
+window.addEventListener("DOMContentLoaded", loadMenu);
+>>>>>>> e0de17175e6fb3631ea716cb4cbe70f0688d19ec
