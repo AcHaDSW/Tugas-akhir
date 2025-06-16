@@ -40,11 +40,11 @@ const firebaseConfig = {
   measurementId: "G-N9J5PPHJX6"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const analytics = getAnalytics(app);
-// --- Load menu dari JSON ---
+
+// --- Load menu ---
 async function loadMenu() {
   try {
     const dbRef = ref(db);
@@ -83,7 +83,7 @@ async function loadMenu() {
   }
 }
 
-// --- Tampilkan menu sesuai hasil filter dan pencarian ---
+// --- Tampilkan menu ---
 function displayProducts(menuList) {
   productListEl.innerHTML = "";
   menuList.forEach((product) => {
@@ -100,7 +100,6 @@ function displayProducts(menuList) {
   });
 }
 
-// --- Tambah ke pesanan ---
 function addToOrder(productId) {
   const product = products.find((p) => p.id === productId);
   if (!product) return;
@@ -121,7 +120,6 @@ function addToOrder(productId) {
 window.addToOrder = addToOrder;
 window.removeFromOrder = removeFromOrder;
 
-// --- Hapus dari pesanan ---
 function removeFromOrder(productId) {
   const index = orders.findIndex((o) => o.id === productId);
   if (index !== -1) {
@@ -130,7 +128,6 @@ function removeFromOrder(productId) {
   }
 }
 
-// --- Tampilkan daftar pesanan ---
 function renderOrderList() {
   orderListEl.innerHTML = "";
   if (orders.length === 0) {
@@ -155,7 +152,6 @@ function renderOrderList() {
   hitungTotal();
 }
 
-// --- Hitung total harga ---
 function hitungTotal() {
   const total = orders.reduce(
     (sum, item) => sum + item.harga * item.quantity,
@@ -176,33 +172,47 @@ checkoutBtn.addEventListener("click", async () => {
     return;
   }
 
+  const tableNumber = tableInput.value.trim();
+  if (tableNumber === "") {
+    alert("Silakan masukkan nomor meja.");
+    return;
+  }
+
   const paymentMethod = selectedPayment.value;
   const total = orders.reduce(
     (sum, order) => sum + order.harga * order.quantity,
     0
   );
-  const newOrderRef = push(ref(db, "pesanan")); 
+
+  const newOrderRef = push(ref(db, "pesanan"));
   await set(newOrderRef, {
-  items: orders,
-  metode: paymentMethod,
-  total: total,
-  status: "dalam proses",
-  waktu: new Date().toISOString()
-});
-
-
+    items: orders,
+    metode: paymentMethod,
+    total: total,
+    nomorMeja: tableNumber,
+    status: "dalam proses",
+    waktu: new Date().toISOString()
+  });
+  // --- Tambahkan input nomor meja ---
+  const tableInput = document.createElement("input");
+  tableInput.type = "text";
+  tableInput.id = "table-number";
+  tableInput.placeholder = "Masukkan Nomor Meja";
+  tableInput.style.marginBottom = "1rem";
+  document.getElementById("menu-section").prepend(tableInput);
   alert(
     `Pesanan Anda sedang diproses.\nTotal: Rp ${total.toLocaleString(
       "id-ID"
-    )}\nMetode: ${paymentMethod}`
+    )}\nMeja: ${tableNumber}\nMetode: ${paymentMethod}`
   );
 
   orders = [];
   renderOrderList();
   paymentForm.reset();
+  tableInput.value = "";
 });
 
-// --- Tampilkan opsi bank/e-wallet sesuai pilihan ---
+// --- Tampilkan opsi bank/e-wallet ---
 document.addEventListener("DOMContentLoaded", () => {
   const paymentRadios = document.querySelectorAll('input[name="payment"]');
   const bankOptions = document.getElementById("bank-options");
@@ -224,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- Filter dan cari menu ---
+// --- Filter menu ---
 function filterAndSearch() {
   const keyword = searchInput.value.toLowerCase();
   const filter = filterSelect.value;
@@ -241,5 +251,4 @@ function filterAndSearch() {
 searchInput.addEventListener("input", filterAndSearch);
 filterSelect.addEventListener("change", filterAndSearch);
 
-// --- Jalankan saat halaman dimuat ---
 window.addEventListener("DOMContentLoaded", loadMenu);
