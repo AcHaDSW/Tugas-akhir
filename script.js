@@ -7,6 +7,16 @@ const totalAmountEl = document.getElementById("total-amount");
 let products = [];
 let orders = [];
 
+// --- Input Nomor Meja ---
+const tableNumberInput = document.createElement("input");
+tableNumberInput.type = "number";
+tableNumberInput.id = "table-number";
+tableNumberInput.placeholder = "Nomor Meja";
+tableNumberInput.min = 1;
+tableNumberInput.required = true;
+tableNumberInput.style.marginBottom = "1rem";
+paymentForm.prepend(tableNumberInput);
+
 // --- Buat elemen pencarian dan filter ---
 const searchInput = document.createElement("input");
 searchInput.type = "text";
@@ -40,11 +50,10 @@ const firebaseConfig = {
   measurementId: "G-N9J5PPHJX6"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const analytics = getAnalytics(app);
-// --- Load menu dari JSON ---
+
 async function loadMenu() {
   try {
     const dbRef = ref(db);
@@ -83,7 +92,6 @@ async function loadMenu() {
   }
 }
 
-// --- Tampilkan menu sesuai hasil filter dan pencarian ---
 function displayProducts(menuList) {
   productListEl.innerHTML = "";
   menuList.forEach((product) => {
@@ -100,7 +108,6 @@ function displayProducts(menuList) {
   });
 }
 
-// --- Tambah ke pesanan ---
 function addToOrder(productId) {
   const product = products.find((p) => p.id === productId);
   if (!product) return;
@@ -121,7 +128,6 @@ function addToOrder(productId) {
 window.addToOrder = addToOrder;
 window.removeFromOrder = removeFromOrder;
 
-// --- Hapus dari pesanan ---
 function removeFromOrder(productId) {
   const index = orders.findIndex((o) => o.id === productId);
   if (index !== -1) {
@@ -130,7 +136,6 @@ function removeFromOrder(productId) {
   }
 }
 
-// --- Tampilkan daftar pesanan ---
 function renderOrderList() {
   orderListEl.innerHTML = "";
   if (orders.length === 0) {
@@ -155,7 +160,6 @@ function renderOrderList() {
   hitungTotal();
 }
 
-// --- Hitung total harga ---
 function hitungTotal() {
   const total = orders.reduce(
     (sum, item) => sum + item.harga * item.quantity,
@@ -164,15 +168,19 @@ function hitungTotal() {
   totalAmountEl.textContent = total.toLocaleString("id-ID");
 }
 
-// --- Checkout ---
+// --- Checkout dengan Nomor Meja ---
 checkoutBtn.addEventListener("click", () => {
   if (orders.length === 0) return;
 
-  const selectedPayment = paymentForm.querySelector(
-    'input[name="payment"]:checked'
-  );
+  const selectedPayment = paymentForm.querySelector('input[name="payment"]:checked');
   if (!selectedPayment) {
     alert("Silakan pilih metode pembayaran terlebih dahulu.");
+    return;
+  }
+
+  const tableNumber = document.getElementById("table-number").value;
+  if (!tableNumber || parseInt(tableNumber) <= 0) {
+    alert("Silakan masukkan nomor meja yang valid.");
     return;
   }
 
@@ -183,9 +191,10 @@ checkoutBtn.addEventListener("click", () => {
   );
 
   alert(
-    `Pesanan Anda sedang diproses.\nTotal: Rp ${total.toLocaleString(
-      "id-ID"
-    )}\nMetode: ${paymentMethod}`
+    `Pesanan Anda sedang diproses.\n` +
+    `Nomor Meja: ${tableNumber}\n` +
+    `Total: Rp ${total.toLocaleString("id-ID")}\n` +
+    `Metode: ${paymentMethod}`
   );
 
   orders = [];
@@ -193,7 +202,6 @@ checkoutBtn.addEventListener("click", () => {
   paymentForm.reset();
 });
 
-// --- Tampilkan opsi bank/e-wallet sesuai pilihan ---
 document.addEventListener("DOMContentLoaded", () => {
   const paymentRadios = document.querySelectorAll('input[name="payment"]');
   const bankOptions = document.getElementById("bank-options");
@@ -215,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- Filter dan cari menu ---
 function filterAndSearch() {
   const keyword = searchInput.value.toLowerCase();
   const filter = filterSelect.value;
@@ -232,5 +239,4 @@ function filterAndSearch() {
 searchInput.addEventListener("input", filterAndSearch);
 filterSelect.addEventListener("change", filterAndSearch);
 
-// --- Jalankan saat halaman dimuat ---
 window.addEventListener("DOMContentLoaded", loadMenu);
