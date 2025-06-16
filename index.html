@@ -10,16 +10,27 @@
 
 <body>
     <header>
-        <img src="logo web.jpg">
         <h1>Dapur Kenangan</h1>
         <p>Kenangan lama tersaji kembali</p>
-        <nav>
-            <ul>
-                <li><a href="halamanlogin.html" id="nav-login">Login</a></li>
-                <li><a href="halamanberanda.html" id="nav-home">Beranda</a></li>
-                <li><a href="index.html" id="nav-menu">Menu</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="halamanlogin.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="halamanberanda.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="editMenu.html">Edit Menu</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     </header>
     <main>
         <section id="menu-section">
@@ -69,7 +80,7 @@
                     </select>
                 </div>
                 <label>
-                    <input type="radio" name="payment" value="COD">
+                    <input type="radio" name="payment" value="Bayar di kasir">
                     Bayar di kasir
                 </label>
             </form>
@@ -78,6 +89,7 @@
     <footer>
         <p>&copy; 2025 DapurKenangan. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
+
 </html>

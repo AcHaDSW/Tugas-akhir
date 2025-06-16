@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mengubah Menu </title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: #a5550a;
+            color: white;
+            padding: 10px;
+            font-size: larger;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            height: 75px;
+        }
+
+        header h1,
+        p {
+            margin: 5px;
+        }
+
+        footer {
+            background: #a5550a;
+            color: white;
+            padding: 1rem;
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            text-align: center;
+            gap: 20px;
+            padding: 0;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffcccb;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #a15004;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        td:hover {
+            background-color: #eafaf1;
+        }
+
+        .edit-btn {
+            background-color: #2196F3;
+            color: white
+        }
+
+        .hapus-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #inputan {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        #inputan h2 {
+            margin-bottom: 15px;
+            color: #2e7d32;
+            font-size: 30px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="number"] {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        #simpanBtn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #simpanBtn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="halamanlogin.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="halamanberanda.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="editMenu.html">Edit Menu</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div id="inputan">
+        <h2>➕ Tambah/Edit/Hapus Menu</h2>
+        <div class="form-row">
+            <label for="nama">Nama Menu:</label><br>
+            <input type="text" id="nama"><br>
+            <label for="harga">Harga:</label><br>
+            <input type="number" id="harga"><br>
+            <label for="deskripsi">Deskripsi:</label><br>
+            <input type="text" id="deskripsi"><br>
+            <label for="image">URL Gambar:</label><br>
+            <input type="text" id="image"><br>
+
+            <label for="kategori">Kategori:</label><br>
+            <select id="kategori">
+                <option value="menuMakanan">Makanan</option>
+                <option value="menuMinuman">Minuman</option>
+                <option value="menuSnack">Snack</option>
+            </select><br>
+            <button id="simpanBtn">Simpan</button>
+        </div>
+    </div>
+
+    <table id="novel-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Deskripsi</th>
+                <th>Gambar</th>
+                <th>Pilihan</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getDatabase, ref, get, child, onValue, push, update, remove, set } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCjule_qtFeUPk1NQ8AoUG3X0wbJej-FLg",
+            authDomain: "authkelompok8.firebaseapp.com",
+            databaseURL: "https://authkelompok8-default-rtdb.firebaseio.com",
+            projectId: "authkelompok8",
+            storageBucket: "authkelompok8.appspot.com",
+            messagingSenderId: "223246929628",
+            appId: "1:223246929628:web:114f77ef0e7c2c4919ae19",
+            measurementId: "G-N9J5PPHJX6"
+        };
+
+        // Inisialisasi Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const menuMakananRef = ref(db, 'menuMakanan');
+        const menuMinumanRef = ref(db, 'menuMinuman');
+        const menuSnackRef = ref(db, 'menuSnack');
+        const analytics = getAnalytics(app);
+        let keyTerbaru = null;
+        let kategoriTerbaru = null;
+
+
+        function getAllDataRealTime() {
+            const menuPaths = ['menuMakanan', 'menuMinuman', 'menuSnack'];
+            const semuaMenu = [];
+
+            menuPaths.forEach((path, index) => {
+                const refPath = ref(db, path);
+                onValue(refPath, (snapshot) => {
+                    snapshot.forEach((childSnapshot) => {
+                        const data = childSnapshot.val();
+                        if (typeof data === 'object' && data !== null) {
+                            data.key = childSnapshot.key;
+                            data.kategori = path; // tambahkan informasi asal data
+                            semuaMenu.push(data);
+                        }
+                    });
+
+                    // Render setelah semua path selesai dibaca
+                    if (index === menuPaths.length - 1) {
+                        renderTable(semuaMenu);
+                    }
+                });
+            });
+        }
+
+        function renderTable(menuList) {
+            const table = document.getElementById('table-body');
+            table.innerHTML = "";
+            let no = 1;
+            menuList.forEach((menu) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td>${no++}</td>
+                <td>${menu.nama}</td>
+                <td>${menu.harga}</td>
+                <td>${menu.deskripsi}</td>
+                <td><img src="${menu.image}" alt="${menu.nama}" width="100"></td>
+                <td>
+                    <button class="edit-btn" data-key="${menu.key}" data-kategori="${menu.kategori}">Edit</button>
+                    <button class="hapus-btn" data-key="${menu.key}" data-kategori="${menu.kategori}">Hapus</button>
+                </td>
+            `;
+                table.appendChild(row);
+            });
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', editMenu);
+            });
+            document.querySelectorAll('.hapus-btn').forEach(button => {
+                button.addEventListener('click', hapusMenu);
+            });
+        }
+
+        function simpanMenu() {
+            const nama = document.getElementById('nama').value;
+            const harga = document.getElementById('harga').value;
+            const deskripsi = document.getElementById('deskripsi').value;
+            const image = document.getElementById('image').value;
+            const kategori = document.getElementById('kategori').value;
+
+            if (nama && harga && deskripsi && image) {
+                const data = {
+                    nama,
+                    harga: parseInt(harga),
+                    deskripsi,
+                    image
+                };
+
+                if (keyTerbaru && kategoriTerbaru) {
+                    update(ref(db, `${kategoriTerbaru}/${keyTerbaru}`), data).then(() => {
+                        console.log("Data berhasil diperbarui");
+                        resetForm();
+                        keyTerbaru = null;
+                        kategoriTerbaru = null;
+                    });
+                } else {
+                    const newRef = push(ref(db, kategori));
+                    set(newRef, data)
+                        .then(() => {
+                            console.log("Menu berhasil ditambahkan");
+                            resetForm();
+                        });
+                }
+            } else {
+                alert("Isi semua kolom!");
+            }
+        }
+
+        function editMenu(event) {
+            const key = event.target.dataset.key;
+            const kategori = event.target.dataset.kategori;
+            const dataRef = ref(db, `${kategori}/${key}`);
+
+            get(dataRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    document.getElementById('nama').value = data.nama;
+                    document.getElementById('harga').value = data.harga;
+                    document.getElementById('deskripsi').value = data.deskripsi;
+                    document.getElementById('image').value = data.image;
+                    document.getElementById('kategori').value = kategori;
+                    document.getElementById('kategori').disabled = true;
+                    document.getElementById('id').value = data.id || '';
+
+                    keyTerbaru = key;
+                    kategoriTerbaru = kategori;
+
+                    // Ubah heading dan tombol
+                    document.querySelector('#inputan h2').textContent = '✏️ Edit Menu';
+                    document.getElementById('simpanBtn').textContent = 'Perbarui';
+                } else {
+                    console.log("Data tidak ditemukan!");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+
+        function hapusMenu(event) {
+            const key = event.target.dataset.key;
+            const kategori = event.target.dataset.kategori;
+            if (confirm("Yakin ingin menghapus data ini?")) {
+                remove(ref(db, `${kategori}/${key}`)).then(() => {
+                    console.log("Data berhasil dihapus");
+                }).catch((error) => {
+                    console.error("Gagal menghapus:", error);
+                });
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('nama').value = '';
+            document.getElementById('harga').value = '';
+            document.getElementById('deskripsi').value = '';
+            document.getElementById('image').value = '';
+            document.getElementById('simpanBtn').textContent = 'Simpan';
+            document.querySelector('#inputan h2').textContent = '➕ Tambah Menu';
+            document.getElementById('kategori').disabled = false;
+        }
+        document.getElementById('simpanBtn').addEventListener('click', simpanMenu);
+        window.onload = getAllDataRealTime;
+    </script>
+</body>
