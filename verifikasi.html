@@ -3,26 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Login Form Bootstrap 5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fff7f2;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      border: 2px solid #a5550a;
+      border-radius: 15px;
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .form-label {
+      color: #a5550a;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background-color: #a5550a;
+      border-color: #a5550a;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background-color: #843f06;
+      border-color: #843f06;
+    }
+
+    h2 {
+      text-align: center;
+      color: #a5550a;
+      margin-bottom: 1.5rem;
+    }
+
+    #alertBox .alert {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
-<body class="bg-light">
+<body>
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-4">
       <div class="card shadow">
         <div class="card-body">
+          <h2>Login Admin</h2>
           <form id="loginForm">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+              <input type="text" class="form-control" id="username" placeholder="Masukkan username" required>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+              <input type="password" class="form-control" id="password" placeholder="Masukkan password" required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Masuk</button>
           </form>
-          <div id="alertBox" class="mt-3"></div>
+          <div id="alertBox"></div>
         </div>
       </div>
     </div>
@@ -35,7 +79,7 @@
 <!-- JavaScript untuk validasi login -->
 <script>
   document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Mencegah form dikirim
+    e.preventDefault();
 
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value;
@@ -47,9 +91,9 @@
 
     if (username === validUsername && password === validPassword) {
       alertBox.innerHTML = '<div class="alert alert-success">Login berhasil!</div>';
-      window.location.href="editMenu.html";
-      // Bisa redirect ke halaman lain di sini jika perlu:
-      // window.location.href = "dashboard.html";
+      setTimeout(() => {
+        window.location.href = "editMenu.html";
+      }, 1000);
     } else {
       alertBox.innerHTML = '<div class="alert alert-danger">Username atau password salah!</div>';
     }

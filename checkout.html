@@ -5,27 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Antrian Pesanan</title>
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff7f2;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #a5550a;
+      margin-bottom: 2rem;
+    }
+
+    #order-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
     .order-card {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background-color: #f9f9f9;
+      border: 2px solid #a5550a;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(165, 85, 10, 0.1);
+      transition: transform 0.2s ease;
     }
+
+    .order-card:hover {
+      transform: translateY(-4px);
+    }
+
     .order-card h3 {
-      margin: 0 0 0.5rem;
+      margin-top: 0;
+      color: #a5550a;
+      font-size: 1.3rem;
+      border-bottom: 1px solid #a5550a;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
+
+    .order-card p {
+      margin: 0.3rem 0;
+    }
+
     .order-card ul {
-      padding-left: 1rem;
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 1rem;
     }
+
+    .order-card li {
+      list-style-type: disc;
+    }
+
     .selesai-btn {
-      margin-top: 10px;
-      padding: 5px 10px;
-      background-color: green;
+      display: inline-block;
+      background-color: #a5550a;
       color: white;
+      padding: 0.5rem 1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .selesai-btn:hover {
+      background-color: #843f06;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .order-card {
+        padding: 1rem;
+      }
+
+      .selesai-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -56,12 +117,12 @@
       const dbRef = ref(db);
       const snapshot = await get(child(dbRef, 'pesanan'));
       if (!snapshot.exists()) {
-        orderListEl.innerHTML = "<p>Tidak ada pesanan.</p>";
+        orderListEl.innerHTML = "<p style='text-align: center;'>Tidak ada pesanan.</p>";
         return;
       }
 
       const orders = snapshot.val();
-      orderListEl.innerHTML = ""; 
+      orderListEl.innerHTML = "";
       Object.entries(orders).forEach(([orderId, order]) => {
         const card = document.createElement("div");
         card.className = "order-card";
